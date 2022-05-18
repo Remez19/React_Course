@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import CartProvider from "./store/cart-provider";
 function App() {
+  const [cartVisability, setCartVisability] = useState(false);
+
+  const cartVisabilityHandler = () => {
+    setCartVisability((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
-    <React.Fragment>
-      <Cart />
-      <Header></Header>
+    <CartProvider>
+      {cartVisability && <Cart onClick={cartVisabilityHandler} />}
+      <Header onClick={cartVisabilityHandler}></Header>
       <main>
         <Meals></Meals>
       </main>
-    </React.Fragment>
+    </CartProvider>
   );
 }
 
