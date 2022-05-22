@@ -9,10 +9,10 @@ const Cart = (props) => {
   const cartHasItems = cartContext.items.length > 0;
 
   const cartItemRemoveHandler = (itemId) => {
-    //cartContext.remItem(itemId);
+    cartContext.removeItem(itemId);
   };
   const cartItemAddHandler = (item) => {
-    //cartContext.addItem(item)
+    cartContext.addItem({ ...item, amount: 1 });
   };
 
   const cartItems = (
