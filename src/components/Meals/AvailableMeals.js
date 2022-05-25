@@ -40,8 +40,8 @@ const AvailableMeals = () => {
   }
   if (hasError) {
     return (
-      <section className={styles.MealsLoading}>
-        <p>Error!</p>
+      <section className={styles.MealsError}>
+        <p>Faild to fetch meals!</p>
       </section>
     );
   }
